@@ -11,53 +11,44 @@ int main(void)
   printf("Enter the size of the stack: ");
   scanf("%d",&n);
   loop1:
-  printf("Choose one option from below: ");
-  printf("\n1.push \n2.pop \n3.peek");
-  printf("\nEnter your choice: ");
-  scanf("%d",&choice);
-  switch (choice)
+  do
   {
-    case 1:
-      push();
-      break;
+    printf("----------------------------\n");
+    printf("Choose one option from below: ");
+    printf("\n1.push \n2.pop \n3.peek");
+    printf("\nEnter your choice: ");
+    scanf("%d",&choice);
+    switch (choice)
+    {
+      case 1:
+        push();
+        break;
 
-    case 2:
-      pop();
-      break;
+      case 2:
+        pop();
+        break;
 
-    case 3:
-      peek();
-      break;
+      case 3:
+        peek();
+        break;
 
-    default:
-      printf("**********************\n   Invalid choice!!\n**********************");
-      break;
-  }
-  loop2:
-  printf("\n-----------------------------------------------------------");
-  printf("\nDo you still use the stack?\nChoose 1 for yes and 2 for no: ");
-  scanf("%d",&c);
-  if (c==1)
-  {
-    goto loop1;
-  }
-  else if (c==2)
-  {
-    printf("You have choosen to exit!!");
-    return 0;
-  }
-  else
-  {
-    printf("*********************\n   Invalid input!!\n*********************");
-    goto loop2;
-  }
+      case 4:
+        printf("Exitting!!!....");
 
+      default:
+        printf("**********************\n   Invalid choice!!\n**********************");
+        break;
+    }
+  } while (choice!=4);
+  
+
+ 
 }
 
 void push()
 {
   int val;
-  if (top==n)
+  if (top==n-1)
   printf("****************\n   Overflow!!\n****************");
   else
   {
@@ -83,7 +74,7 @@ void pop()
 
 void peek()
 {
-  for (i=0; i<=top; i++)
+  for (i=top; i>=0; i--)
   {
     printf("%d\n",stack[i]);
   }
