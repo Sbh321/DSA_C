@@ -3,13 +3,36 @@ int fibo(int);
 
 int main(void)
 {
-  int n;
-  printf("Enter the value of n: ");
-  scanf("%d",&n);
-  for (int i=0;i<n;i++)
+  int choice,n;
+  do
   {
-      printf("%d\t",fibo(i));
-  }
+    printf("\n------------------------------\n");
+    printf("Menu:\n");
+    printf("1. Generate Fibonacci Series\n");
+    printf("2. Quit\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+    switch (choice)
+    {
+      case 1:
+        printf("Enter the value of n: ");
+        scanf("%d",&n);
+        for (int i=0;i<n;i++)
+        {
+            printf("%d\t",fibo(i));
+        }
+        break;
+        
+      case 2:
+        printf("Quitting......");
+        break;
+
+      default:
+        printf("Invalid Choice!!");
+        break;
+    }
+  } while (choice!=2);
+
 }
 
 int fibo(int k)

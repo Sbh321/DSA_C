@@ -10,12 +10,11 @@ int main(void)
 {
   printf("Enter the size of the stack: ");
   scanf("%d",&n);
-  loop1:
   do
   {
     printf("----------------------------\n");
     printf("Choose one option from below: ");
-    printf("\n1.push \n2.pop \n3.peek");
+    printf("\n1.push \n2.pop \n3.peek \n4.Exit");
     printf("\nEnter your choice: ");
     scanf("%d",&choice);
     switch (choice)
@@ -34,6 +33,7 @@ int main(void)
 
       case 4:
         printf("Exitting!!!....");
+        break;
 
       default:
         printf("**********************\n   Invalid choice!!\n**********************");
@@ -49,7 +49,7 @@ void push()
 {
   int val;
   if (top==n-1)
-  printf("****************\n   Overflow!!\n****************");
+  printf("****************\n   Overflow!!\n****************\n");
   else
   {
     printf("Enter the value: ");
@@ -68,14 +68,21 @@ void pop()
   {
     item=stack[top];
     top=top-1;
-    printf("The deleted item is: %d",item);
+    printf("The deleted item is: %d\n",item);
   }
 }
 
 void peek()
 {
-  for (i=top; i>=0; i--)
+  if (top==-1)
   {
-    printf("%d\n",stack[i]);
+    printf("Stack is empty\n");
+  }
+  else
+  {
+    for (i=top; i>=0; i--)
+    {
+      printf("%d\n",stack[i]);
+    }
   }
 }

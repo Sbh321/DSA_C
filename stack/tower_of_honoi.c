@@ -1,16 +1,37 @@
 #include <stdio.h>
-#include<stdlib.h>
 #include<conio.h>
 
 void TOH(int,char,char,char);
 
 int main()
 {
-    int n;
-    printf("Enter number of disks:");
-    scanf("%d",&n);
-    TOH(n,'O','D','I');
-    getch();
+  int choice,n;
+  do
+  {
+    printf("\n------------------------------\n");
+    printf("Menu:\n");
+    printf("1. Generate Fibonacci Series\n");
+    printf("2. Quit\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+    switch (choice)
+    {
+      case 1:
+        printf("Enter number of disks:");
+        scanf("%d",&n);
+        TOH(n,'O','D','I');
+        getch();
+        break;
+        
+      case 2:
+        printf("Quitting......");
+        break;
+
+      default:
+        printf("Invalid Choice!!");
+        break;
+    }
+  } while (choice!=2);
 }
 
 void TOH(int n,char A,char B, char C)
